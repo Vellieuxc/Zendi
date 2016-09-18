@@ -1,0 +1,5 @@
+<%= simple_form_for @comment do |f| %>
+  <%= f.input :text, placeholder: "My opinion", label: "What is your opinion?" %>
+  <%= f.input :doctor_id, placeholder: "doctor", label: "What is your doctor?" %>
+  <%= f.button :submit, 'Submit', class: "btn btn-primary" %>
+<% end %>

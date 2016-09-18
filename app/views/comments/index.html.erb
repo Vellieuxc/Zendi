@@ -1,3 +1,43 @@
-<% @comments.each do |comment| %>
-  <h3><%= comment.text %></h3>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1 class="text-center">all products</h1>
+      <%= link_to "New", new_comment_path, class: "btn btn-primary btn-lg" %>
+      <% @comments.each do |comment| %>
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+            <div class='product-count'>1</div>
+          </div>
+          <img src="http://unsplash.it/300/200" alt="kudoz" class="product-image hidden-xs">
+          <div class='product-body'>
+            <h3><%= comment.text %></h3>
+            <p><%= comment.user_id %></p>
+            <p><%= comment.doctor_id %></p>
+          </div>
+          <ul class="list-inline product-controls hidden-sm hidden-xs">
+            <li>
+              <%= link_to comment_path(comment) do %>
+                <i class="fa fa-eye"></i>
+              <% end %>
+            </li>
+            <li>
+              <% if can? :update, comment %>
+                <%= link_to comment_path(comment), method: :delete do %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if can? :update, comment %>
+                <%= link_to edit_comment_path(comment) do %>
+                  <i class="fa fa-pencil"></i>
+                <% end %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

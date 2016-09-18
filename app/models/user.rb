@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :comments
   belongs_to :doctor
+
+  ROLES = %i[admin doctor patient]
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
+  end
+  def admin?
+    self.role == "admin"
+  end
 end
