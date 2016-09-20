@@ -18,6 +18,7 @@
     <!-- Text link -->
 <!--     <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a> -->
 
+
     <!-- Text link -->
     <%= link_to "All comments", comments_path, class:"navbar-wagon-item navbar-wagon-link" %>
 
@@ -30,9 +31,14 @@
     </a> -->
 
     <!-- Profile picture and dropdown -->
+    <% if user_signed_in? %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <% if current_user.avatar? %>
+          <%= cl_image_tag(current_user.avatar.path, width: 30, height: 30, crop: :fill, class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', :'data-toggle' => "dropdown") %>
+        <% else %>
+          <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <% end %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
@@ -40,6 +46,7 @@
         </ul>
       </div>
     </div>
+    <% end %>
 
     <!-- Button (call-to-action) -->
     <a href="" class="navbar-wagon-item navbar-wagon-button btn">Post stuff</a>

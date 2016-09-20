@@ -1,15 +1,11 @@
-<!-- <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "sign-in", new_user_session_path %>
-<%= link_to "sign-up", new_user_registration_path %>
-<%= link_to "log out", destroy_user_session_path, method: :delete %> -->
-
-
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "background_home.jpg" %>');">
   <div class="banner-content">
     <h1>Zendi</h1>
     <p>Book your medical appointment</p>
     <%= link_to "All comments", comments_path, class: "btn btn-primary btn-lg" %>
     <a class="btn btn-primary btn-lg">GET IT</a>
+    <%= link_to "sign-in", new_user_session_path %>
+    <%= link_to "sign-up", new_user_registration_path %>
+    <%= link_to "log out", destroy_user_session_path, method: :delete %>
   </div>
 </div>

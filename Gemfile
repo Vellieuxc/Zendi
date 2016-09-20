@@ -18,6 +18,10 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 gem 'cancancan'
+gem 'cloudinary', '~> 1.0.24'
+gem 'attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'binding_of_caller'

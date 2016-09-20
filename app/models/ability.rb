@@ -36,6 +36,7 @@ class Ability
       can :update, Comment, :user_id => user.id
       can :read, Comment
       can :manage, Doctor
+      can :create, Comment
     end
   end
 end

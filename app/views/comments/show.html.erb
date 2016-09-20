@@ -1,3 +1,6 @@
 <h2><%= @comment.text %></h2>
 <h2><%= @comment.doctor_id %></h2>
 <h2><%= @comment.user_id %></h2>
+<% if @comment.photo? %>
+  <%= cl_image_tag @comment.photo.path, width: 200 %>
+<% end %>
